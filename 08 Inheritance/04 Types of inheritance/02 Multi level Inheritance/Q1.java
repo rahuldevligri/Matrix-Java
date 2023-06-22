@@ -1,4 +1,4 @@
-//single level inheritance & overriding...
+//Multi level inheritance...
 import java.util.Scanner;
 class A{
     private int x;
@@ -6,9 +6,6 @@ class A{
         x=0;
     }
     A(int x1){
-        x=x1;
-    }
-    void setdata(int x1){
         x=x1;
     }
     void getdata(){
@@ -30,10 +27,6 @@ class B extends A{
         super(x1);//compulsory
         y=y1;
     }
-    void setdata(int x1,int y1){//method overloading name same & argument different...
-        setdata(x1);
-        y=y1;
-    }
     void getdata(){//method overriding same name & same argument...
         super.getdata();
         Scanner sc = new Scanner(System.in);
@@ -45,17 +38,35 @@ class B extends A{
         System.out.println(","+y);
     }
 }
+class C extends B{
+    private int z;
+    C(){
+        super();//optional
+        z=0;
+    }
+    C(int x1,int y1,int z1){
+        super(x1,y1);//compulsory
+        z=z1;
+    }
+     void getdata(){//method overriding same name & same argument...
+        super.getdata();
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter value of z ");
+        z = sc.nextInt();
+    }
+    void display(){//method overriding
+        super.display();
+        System.out.println(","+z);
+    }
+}
+
 public class Q1 {
     public static void main(String[] args){
-        B b1 = new B();
-        b1.setdata(5, 10);
-        b1.display();
-
-        B b2 = new B(5,10);
-        b2.display();
-
-        B b3 = new B();
-        b3.getdata();
-        b3.display();
+        C c1 = new C();
+        c1.getdata();
+        c1.display();
+         
+        C c2 = new C(5,10,15);
+        c2.display();
     }
 }
