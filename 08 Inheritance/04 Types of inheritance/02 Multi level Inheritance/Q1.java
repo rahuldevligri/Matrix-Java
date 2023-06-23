@@ -10,7 +10,7 @@ class A{
     }
     void getdata(){
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter valu of x");
+        System.out.print("Enter valu of x ");
         x=sc.nextInt();
     }
     void display(){
@@ -35,7 +35,7 @@ class B extends A{
     }
     void display(){//method overriding
         super.display();
-        System.out.println(","+y);
+        System.out.print(","+y);
     }
 }
 class C extends B{
