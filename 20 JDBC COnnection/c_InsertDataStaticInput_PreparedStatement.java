@@ -6,12 +6,13 @@ public class c_InsertDataStaticInput_PreparedStatement {
             Class.forName("com.mysql.cj.jdbc.Driver");
             
             //create Conncetion..
-            String url="jdbc:mysql://localhost:3306/youtube";
+            String url="jdbc:mysql://localhost:3306/jdbc";
             String username="root";
             String password="4642";
             Connection con=DriverManager.getConnection(url,username,password);
 
             //create a query
+            //dynamic query
             String q = "insert into table1(tName,tCity) values (?,?)";
 
             //get the PreparedStatement object...
@@ -21,9 +22,13 @@ public class c_InsertDataStaticInput_PreparedStatement {
             pstmt.setString(1,"Rohit Devligri");
             pstmt.setString(2,"Jaipur");
 
-            pstmt.executeUpdate();
-
-            System.out.println("inserted...");
+            int i = pstmt.executeUpdate(); 
+            if(i>0){
+                System.out.println("inserted...");
+            }
+            else{
+                System.out.println("Fail...");
+            }
         }catch(Exception e){
             e.printStackTrace();
         }

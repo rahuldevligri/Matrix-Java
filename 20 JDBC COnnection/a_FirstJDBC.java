@@ -6,11 +6,12 @@ public class a_FirstJDBC {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             //Creating a  connection
-            String url = "jdbc:mysql://localhost:3306/youtube";
+            String url = "jdbc:mysql://localhost:3306/jdbc";
             String username = "root";
             String password = "4642";
 
             Connection con = DriverManager.getConnection(url,username,password);
+            
             //check connection...
             if(con.isClosed()){
                 System.out.println("Connection is closed");
